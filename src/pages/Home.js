@@ -10,7 +10,7 @@ function Home() {
             <h1>Let's get started</h1>
             </div>
             <div className='flex justify-center text-2xl m-4'>
-                <Link to="./final"> <h1>Document</h1></Link>
+                <Link to="./template"> <h1>Next!</h1></Link>
             </div>
         </div>
     )
