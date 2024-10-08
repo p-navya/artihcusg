@@ -31,39 +31,41 @@ function Final() {
       };
     
       const generateDocument = async () => {
-        const response = await fetch('/template.docx'); // Fetch the template from public folder
+        const selectedTemplate = localStorage.getItem('selectedTemplate'); // Get the selected template
+    
+        if (!selectedTemplate) {
+            alert('No template selected');
+            return;
+        }
+    
+        const response = await fetch(selectedTemplate); // Fetch the selected template file
         const arrayBuffer = await response.arrayBuffer();
         const zip = new PizZip(arrayBuffer);
         const doc = new Docxtemplater(zip, {
-          paragraphLoop: true,
-          linebreaks: true,
+            paragraphLoop: true,
+            linebreaks: true,
         });
     
         // Replace placeholders with user data
         doc.setData({
-          CUSTOMER_NAME: customerDetails.customerName,
-          PROJECT_NAME: customerDetails.projectName,
-          PROJECT_TYPE: customerDetails.projectType,
-          SAP_VERSION: customerDetails.sapVersion,
+            CUSTOMER_NAME: customerDetails.customerName,
+            PROJECT_NAME: customerDetails.projectName,
+            PROJECT_TYPE: customerDetails.projectType,
+            SAP_VERSION: customerDetails.sapVersion,
         });
-        console.log({
-          CUSTOMER_NAME: customerDetails.customerName,
-          PROJECT_NAME: customerDetails.projectName,
-          PROJECT_TYPE: customerDetails.projectType,
-          SAP_VERSION: customerDetails.sapVersion,
-        });
-        
+    
         try {
-          doc.render(); // Replace placeholders with data
-          const out = doc.getZip().generate({
-            type: 'blob',
-            mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-          });
-          saveAs(out, 'Customer_Details_Document.docx'); // Download the file
+            doc.render(); // Replace placeholders with data
+            const out = doc.getZip().generate({
+                type: 'blob',
+                mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            });
+            saveAs(out, 'Customer_Details_Document.docx'); // Download the file
         } catch (error) {
-          console.error('Error generating document:', error);
+            console.error('Error generating document:', error);
         }
-      };
+    };
+    
     
       const handleSubmit = (e) => {
         e.preventDefault();

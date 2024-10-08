@@ -4,6 +4,8 @@ import Home from '../pages/Home';
 import Final from '../pages/Final';
 import Header from '../components/Header/Header';
 import Template from '../pages/Template';
+import Detail from '../pages/Detail';
+import Preview from '../pages/Preview';
 function Routers() {
   return (
     <Router>
@@ -11,6 +13,8 @@ function Routers() {
         <Route path="/" element={<Home />} />
         <Route path="/final" element={<Final />} />
         <Route path='/template' element={<Template/>}/>
+        <Route path="/detail" element={<Detail />} />
+        <Route path="/preview" element={<Preview/>}/>
       </Routes>
     </Router>
   );
