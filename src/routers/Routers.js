@@ -6,6 +6,7 @@ import Header from '../components/Header/Header';
 import Template from '../pages/Template';
 import Detail from '../pages/Detail';
 import Preview from '../pages/Preview';
+import WordEditor from '../pages/WordEditor';
 function Routers() {
   return (
     <Router>
@@ -15,6 +16,7 @@ function Routers() {
         <Route path='/template' element={<Template/>}/>
         <Route path="/detail" element={<Detail />} />
         <Route path="/preview" element={<Preview/>}/>
+        <Route path="/editor" element={<WordEditor />} />
       </Routes>
     </Router>
   );
