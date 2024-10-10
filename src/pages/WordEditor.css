@@ -1,0 +1,31 @@
+/* src/pages/WordEditor.css */
+.word-editor-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start */
+    padding: 16px; /* Add some padding if needed */
+}
+
+.editor-header {
+    margin: 0; /* Remove default margin */
+    margin-bottom: 16px; /* Space between header and editor */
+}
+
+.quill-editor {
+    height: 500px; /* Adjust height as needed */
+    width: 100%;   /* Use full width */
+}
+
+.download-button {
+    margin-top: 16px; /* Space between editor and button */
+    padding: 10px 20px; /* Button padding */
+    background-color: #007bff; /* Button color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.download-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
